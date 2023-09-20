@@ -3,468 +3,306 @@
   '(
     ;; Categoría: Especie
     ("Especie"
-      ("Humano"
-
-      )
-      ("Sangheili"
-
-      )
-      ("Forerunner"
-
-      )
-      ("Jiralhanae"
-
-      )
-      ("Kig-Yar"
-
-      )
-      ("Unggoy"
-
-      )
-      ("Huragok"
-
-      )
-      ("San'Shyuum"
-
-      )
-      ("Yanme'e"
-
-      )
-      ("Mgalekgolo"
-
-      )
-      ("Flood"
-
-      )
-      ;;; Puedes seguir agregando subcategorías y personajes para esta categoría
+      ("Humano")
+      ("Sangheili")
+      ("Forerunner")
+      ("Jiralhanae")
+      ("Kig-Yar")
+      ("Unggoy")
+      ("Huragok")
+      ("San'Shyuum")
+      ("Yanme'e")
+      ("Mgalekgolo")
+      ("Flood")
     )
-
-    ;; Las demás categorías permanecen sin cambios
   )
 
     ;; Categoría: Facción
     ("Facción"
-      ("UNSC"
-
-      )
-      ("Covenant"
-
-      )
-      ("Desterrado"
-
-      )
-      ("Rebeldes"
-
-      )
-      ("Herejes"
-
-      )
-      ("Mercenarios"
-
-      )
-      ("Forerurnner"
-
-      )
-      ("Flood"
-
-      )
-      ("Creados"
-
-      )
+      ("UNSC")
+      ("Covenant")
+      ("Desterrados")
+      ("Rebeldes")
+      ("Herejes")
+      ("Mercenarios")
+      ("Forerurnner")
+      ("Flood")
+      ("Creados")
     )
 
     ;; Categoría: Estado
     ("Estado"
-      ("Activo"
-        
-      )
-      ("Muerto en accion"
-        
-      )
-      ("Desaparecido en accion"
-        
-      )
-      ("Inactivo"
-        
-      )
-      )
+      ("Activo")
+      ("Muerto en accion")
+      ("Desaparecido en accion")
+      ("Inactivo")
+    )
 
     ;; Categoría: Rango
     ("Rango"
-      ("Sin rango"
-
-      )
-      ("Cadete"
-
-      )
-      ("Recluta"
-
-      )
-      ("Recluta de primera clase"
-
-      )
-      ("Soldado"
-
-      )
-      ("Soldado de primera clase"
-
-      )
-      ("Especialista"
-
-      )
-      ("Corporal"
-
-      )
-      ("Sargento de primera clase"
-
-      )
-      ("Sargento mayor"
-
-      )
-      ("Sargento comandante"
-
-      )
-      ("Teniente"
-
-      )
-      ("Teniente de primera clase"
-
-      )
-      ("Capitán"
-
-      )
-      ("Mayor"
-
-      )
-      ("Teniente coronel"
-
-      )
-      ("Coronel"
-
-      )
-      ("General de brigada"
-
-      )
-      ("General de división"
-
-      )
-      ("Teniente general"
-
-      )
-      ("General"
-
-      )
-      ("Comandante"
-
-      )
-      ("Almirante"
-
-      )
-      ("ODST"
-
-      )
-      ("Profeta Menor"
-
-      )
-      ("Profeta Mayor"
-
-      )
-      ("Ministro de la Fortaleza"
-
-      )
-      ("Ministro de la Reliquia"
-
-      )
-      ("Zealot "
-
-      )
-      ("Comandante"
-
-      )
-      ("Oficial Mayor"
-
-      )
-      ("Oficial de la Hueste"
-
-      )
-      ("Capitán Mayor"
-
-      )
-      ("Capitán de Campo"
-
-      )
-      ("Teniente Mayor"
-
-      )
-      ("Teniente de la Hueste"
-
-      )
-      ("Veterano"
-
-      )
-      ("Mayor Domo"
-
-      )
-      ("Chieftain"
-
-      )
-      ("Capitán"
-
-      )
-      ("Mayor"
-
-      )
-      ("Especialista"
-
-      )
-      ("Mayor"
-
-      )
-      ("Deacon"
-
-      )
-      ("Acechador"
-
-      )
-      ("Ultra"
-
-      )
-      ("Hechicero"
-
-      )
-      ("Guardián"
-
-      )
-      ("Alta Sacerdotisa"
-
-      )
-      ("Sacerdotisa"
-
-      )
-      ("Constructor"
-
-      )
-      ("Guardian"
-
-      )
-      ("Monitor"
-
-      )
-      ("Guerrero"
-
-      )
-      ("Lifeworker"
-
-      )
-      ("Didacta"
-
-      )
-      ("Prometeo"
-
-      )
-      ("Minero"
-
-      )
-      ("Auditor"
-
-      )
-      ("Ecumene Council"
-
-      )
-      ("Protogravemind"
-
-      )
-      ("Forma pura"
-
-      )
-      ("Forma de infección"
-
-      )
-      ("Forma carguera"
-
-      )
-      ("Gravemind"
-
-      )
+      ("Sin rango")
+      ("Cadete")
+      ("Recluta")
+      ("Recluta de primera clase")
+      ("Soldado")
+      ("Soldado de primera clase")
+      ("Especialista")
+      ("Corporal")
+      ("Sargento de primera clase")
+      ("Sargento mayor")
+      ("Sargento comandante")
+      ("Teniente")
+      ("Teniente de primera clase")
+      ("Capitán")
+      ("Mayor")
+      ("Teniente coronel")
+      ("Coronel")
+      ("General de brigada")
+      ("General de división")
+      ("Teniente general")
+      ("General")
+      ("Comandante")
+      ("Almirante")
+      ("ODST")
+      ("Profeta Menor")
+      ("Profeta Mayor")
+      ("Ministro de la Fortaleza")
+      ("Ministro de la Reliquia")
+      ("Zealot")
+      ("Comandante")
+      ("Oficial Mayor")
+      ("Oficial de la Hueste")
+      ("Capitán Mayor")
+      ("Capitán de Campo")
+      ("Teniente Mayor")
+      ("Teniente de la Hueste")
+      ("Veterano")
+      ("Mayor Domo")
+      ("Chieftain")
+      ("Capitán")
+      ("Mayor")
+      ("Especialista" )
+      ("Mayor")
+      ("Deacon")
+      ("Acechador" )
+      ("Ultra")
+      ("Hechicero")
+      ("Guardián")
+      ("Alta Sacerdotisa")
+      ("Sacerdotisa")
+      ("Constructor")
+      ("Guardian")
+      ("Monitor")
+      ("Guerrero")
+      ("Lifeworker")
+      ("Didacta")
+      ("Prometeo")
+      ("Minero")
+      ("Auditor")
+      ("Ecumene Council")
+      ("Protogravemind")
+      ("Forma pura")
+      ("Forma de infección")
+      ("Forma carguera")
+      ("Gravemind")
      )
     ;; Categoría: Planeta
     ("Planeta"
-      ("Tierra"
-        
-      )
-      ("Reach"
-
-      )
-      ("Marte"
-
-      )
-      ("Luna"
-
-      )
-      ("Harvest"
-
-      )
-      ("Jericho VII"
-
-      )
-      ("Madrigal"
-
-      )
-      ("Tribute"
-
-      )
-      ("Coral"
-
-      )
-      ("Circinius IV"
-
-      )
-      ("Sigma Octanus IV"
-
-      )
-      ("Draco III"
-
-      )
-      ("Eridanus II"
-
-      )
-      ("High Charity"
-
-      )
-      ("Sanghelios"
-
-      )
-      ("Balaho"
-
-      )
-      ("Te"
-
-      )
-      ("Kaelarot"
-
-      )
-      ("Joyous Exultation"
-
-      )
-      ("Tethys III"
-
-      )
-      ("Suban"
-
-      )
-      ("Rhoptr"
-
-      )
-      ("Doisac"
-
-      )
-      ("Ulg'Ta"
-
-      )
-      ("Hesduros"
-
-      )
-      ("Maethrillian"
-
-      )
-      ("Requiem"
-
-      )
-      ("Instalación 04"
-
-      )
-      ("Instalación 05"
-
-      )
-      ("Instalación 03"
-
-      )
-      ("Instalación 07"
-
-      )
-      ("Instalación 08"
-
-      )
-      ("El arca menor"
-
-      )
-      ("El Arca"
-
-      )
+      ("Tierra")
+      ("Reach")
+      ("Marte")
+      ("Luna")
+      ("Harvest")
+      ("Jericho VII")
+      ("Madrigal")
+      ("Tribute")
+      ("Coral")
+      ("Circinius IV")
+      ("Sigma Octanus IV")
+      ("Draco III")
+      ("Eridanus II")
+      ("High Charity")
+      ("Sanghelios")
+      ("Balaho")
+      ("Te")
+      ("Kaelarot")
+      ("Joyous Exultation")
+      ("Tethys III")
+      ("Suban")
+      ("Rhoptr")
+      ("Doisac")
+      ("Ulg'Ta")
+      ("Hesduros")
+      ("Maethrillian")
+      ("Requiem")
+      ("Instalación 04")
+      ("Instalación 05")
+      ("Instalación 03")
+      ("Instalación 07")
+      ("Instalación 08")
+      ("El arca menor")
+      ("El Arca")
       )
     ;; Categoría: Edad
     ("Edad"
-      ("Infante"
-        
-      )
-      ("Joven"
-        
-      )
-      ("Adulto"
-        
-      )
-      ("Anciano"
-        
-      )
-      ("Antemporal"
-        
-      )
+      ("Infante")
+      ("Joven")
+      ("Adulto")
+      ("Anciano")
+      ("Antemporal")
     )
     ;; Categoría: Primera Aparición
     ("Primera Aparición"
-      ("Halo Combat Evolve"
-        
-      )
-      ("Halo 2"
-        
-      )
-      ("Halo 3"
-        
-      )
-      ("Halo 4"
-        
-      )
-      ("Halo 5"
-        
-      )
-      ("Halo Infinite"
-        
-      )
-      ("Halo Wars"
-        
-      )
-      ("Halo Wars 2"
-        
-      )
-      ("Halo Spartan Assault"
-        
-      )
-      ("Halo Spartan Strike"
-        
-      )
+      ("Halo Combat Evolve")
+      ("Halo 2")
+      ("Halo 3")
+      ("Halo 4")
+      ("Halo 5")
+      ("Halo Infinite")
+      ("Halo Wars")
+      ("Halo Wars 2")
+      ("Halo Spartan Assault")
+      ("Halo Spartan Strike")
     )
 
     ;; Categoría: Relación con UNSC
     ("Relación UNSC"
-      ("Aliado"
-        
-      )
-      ("Neutral"
-        
-      )
-      ("Hostil"
-        
-      )
+      ("Aliado")
+      ("Neutral")
+      ("Hostil")
     )
 
     ;; Categoría: Arma Principal
     ("Arma Principal"
-      ("Rifle de Asalto"
-        ;;; Agrega personajes que usan el Rifle de Asalto como arma principal aquí
-      )
-      ("Espada de Energía"
-        ;;; Agrega personajes que usan la Espada de Energía como arma principal aquí
-      )
-      ;;; Puedes seguir agregando subcategorías y personajes para esta categoría
+      ("Rifle de Asalto")
+      ("Magnum")
+      ("Escopeta")
+      ("Rifle de francotirador")
+      ("Rifle de batalla")
+      ("Rifle de pulsos")
+      ("Martillo gravitatorio")
+      ("Lanzagranadas")
+      ("Lanzamisiles")
+      ("Cañón de plasma")
+      ("Rifle de carbón")
+      ("Cañón de haz")
+      ("Láser Spartan")
+      ("Rifle de partículas")
+      ("Rifle de plasma")
+      ("Cañón de combustible")
+      ("Pistola de plasma")
+      ("Rifle de aguijones")
+      ("Rifle de plasma incendiario")
+      ("Cañón de rayos")
+      ("Cañón de explosión")
+      ("Cañón Gauss")
+      ("Rifle de riel")
+      ("Rifle de precisión")
+      ("Ametralladora pesada")
+      ("Cañón automático")
+      ("Cañón de fuego")
+      ("Cañón de napalm")
+      ("Espada de plasma")
+      ("Cuchillo de combate")
+      ("Granada de fragmentación")
+      ("Granada de pulsos")
+      ("Granada incendiaria")
+      ("Granada de gas")
+      ("Granada de hielo")
+      ("Mina terrestre")
+      ("Mina de proximidad")
+      ("Torreta")
+      ("Lanzador de misiles")
+      ("Cañón antiaéreo")
+      ("Escopeta automática")
+      ("Cañón de riel Gauss")
+      ("Cañón de partículas")
+      ("Lanzacohetes M41")
+      ("Lanzacohetes SPNKr")
+      ("Lanzacohetes Wasps")
+      ("Cañón de artillería")
+      ("Cañón anti-infantería")
+      ("Cañón de pulso Gauss")
+      ("Cañón de partículas pesado")
+      ("Mortero")
+      ("Carabina de plasma")
+      ("Espada de energía")
+      ("Espada del Profeta")
+      ("Rifle de incineración")
+      ("Rifle de destello")
+      ("Rifle de pulsos")
+      ("Espada de energía pesada")
+      ("Cañón de explosión")
+      ("Rifle de aguijones incendiario")
+      ("Cañón de fuego de fuego")
+      ("Lanzagranadas de plasma")
+      ("Granada de plasma")
+      ("Granada de pulsos")
+      ("Granada incendiaria")
+      ("Granada de gas")
+      ("Granada de aguijones")
+      ("Granada de hielo")
+      ("Mina de proximidad")
+      ("Aguijoneador")
+      ("Rifle de aguijones ígneo")
+      ("Espada de energía de energía")
+      ("Lanzagranadas de plasma pesado")
+      ("Cañón destructor")
+      ("Espada de energía Oscura")
+      ("Cañón de rayos de oscuridad")
+      ("Rifle de partículas destructoras")
+      ("Rifle de carbón supercargado")
+      ("Lanzagranadas de plasma repentino")
+      ("Cañón de pulso supersónico")
+      ("Cañón de plasma de tipo 52")
+      ("Lanzacohetes")
+      ("Cañón de plasma de tipo 53")
+      ("Lanzagranadas de plasma de tipo 25")
+      ("Lanzacohetes de tipo 58")
+      ("Espada de energía")
+      ("Cañón destructor de plasma")
+      ("Rifle de pulso Banished")
+      ("Cañón Banished")
+      ("Rifle de aguijones Banished")
+      ("Cañón de plasma Banished")
+      ("Espada de energía Banished")
+      ("Rifle de partículas Banished")
+      ("Lanzagranadas Banished")
+      ("Martillo Banished")
+      ("Rifle de francotirador Banished")
+      ("Espada de energía Banished pesada")
+      ("Lanzacohetes Banished")
+      ("Cañón de haz Banished")
+      ("Rifle de pulso Banished pesado")
+      ("Lanzagranadas de plasma Banished")
+      ("Espada de energía Oscura Banished")
+      ("Cañón de plasma de tipo 58 Banished")
+      ("Scattershot")
+      ("Incineration Cannon")
+      ("Binary Rifle")
+      ("Suppressor")
+      ("Directed Energy Engagement Weapon (DEEW)")
+      ("Pulse Grenade")
+      ("Focus Rifle")
+      ("Close Combat Rifle")
+      ("Plasma Cannon")
     )
-  )
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
