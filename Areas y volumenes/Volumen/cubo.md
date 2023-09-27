@@ -3,3 +3,6 @@
 	(setq a (read))
 	( * ( * a a ) a )
 	)
+	
+	;DESCRIPCION:
+	;Se define la funcion "cubo" esperando una variable dada por el usuario, se multiplica esa variable 2 veces por si mismia y obtendremos el resultado

@@ -5,3 +5,7 @@
 	(setq b (read))
 	( / ( * ( * ( * a a ) b ) 3.1416 ) 3 )
 	)
+
+
+	;DESCRIPCION:
+	;Se define la funcion "cono" esperando dos variables dadas por el usuario, La primera de toma como el radio; multiplicandose por si mismo para obtener el cuadraro, luego por pi, multiplicaomos por la altura y dividimos entre 3
