@@ -1,0 +1,51 @@
+;Relaciones
+(defun esPadre (padre hijo)
+  (list 'padre padre hijo))
+
+(defun esMadre (madre hijo)
+  (list 'madre madre hijo))
+
+(defun esHijo (hijo padre madre)
+  (list 'hijo hijo padre madre))
+
+(defun esHermano (hermano1 hermano2)
+  (list 'hermano hermano1 hermano2))
+
+(defun esAbuelo (abuelo nieto)
+  (list 'abuelo abuelo nieto))
+
+(defun esTio (tio sobrino)
+  (list 'tio tio sobrino))
+
+(defun esSobrino (sobrino tio)
+  (list 'sobrino sobrino tio))
+
+(defun esNieto (nieto abuelo)
+  (list 'nieto nieto abuelo))
+  
+
+;Lista de Relaciones
+(setq relaciones
+    (list 
+            (esPadre 'Jorge J. 'Enya)
+            (esPadre 'Jorge J. 'Jorge)
+            (esPadre 'Jorge J. 'Mateo)
+            (esMadre 'Mily 'Enya)
+            (esMadre 'Mily 'Jorge)
+            (esMadre 'Mily 'Mateo)
+            (esHijo 'Enya 'Jorge J. 'Mily)
+            (esHijo 'Jorge 'Jorge J. 'Mily)
+            (esHijo 'Mateo 'Jorge J. 'Mily)
+            (esHermano 'Enya 'Jorge)
+            (esHermano 'Enya 'Mateo)
+            (esHermano 'Jorge 'Mateo)
+            (esHermano 'Jorge 'Enya)
+            (esHermano 'Mateo 'Enya)
+            (esHermano 'Mateo 'Enya)
+
+    )    
+)
+
+;Reglas de busqueda (predicado)
+
+
