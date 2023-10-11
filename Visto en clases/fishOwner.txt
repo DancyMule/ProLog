@@ -1,0 +1,22 @@
+
+Hay 15 pistas, ¿Quien es el dueño del pez?
+
+
+
+
+(Nacionalidad, Color, Bebida, Cigarro, Mascota, Lugar)
+
+(Noruego, Amarilla, Dunhill, 1)
+(Azul, Caballo, 2)
+(Británico, Roja, Leche, 3)
+(Verde, Café, 4)
+(Blanca, 5)
+
+
+(Sueco, Perro)
+(Danés, té)
+(Alemán, Prince)
+(Pallmall, Pajaros)
+(Blends) -1 = (Gato), +-1(Agua)
+(Bluemaster, Cerveza)
+

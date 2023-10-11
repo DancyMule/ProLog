@@ -47,5 +47,6 @@
 )
 
 ;Reglas de busqueda (predicado)
+()
 
 
