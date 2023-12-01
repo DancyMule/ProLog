@@ -34,14 +34,46 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
     template([bola], ['cara de hola']).
     % ESTE ORDEN ES OBLIGATORIO PARA QUE JALE
 
+
+    template([eres, s(_)], [flagIs], [1]).
+    template([animal, s(_)], [flagAnimal], [1]).
+
+    % lo que es eliza: flagIs
+    elizaIs(X, R):- is0(X), R = ['Yes', yo, soy, X].
+    elizaIs(X, R):- \+is0(X), R = ['No', i, am, not, X].
+    is0(dumb).
+    is0(weird).
+    is0(nice).
+    is0(fine).
+    is0(happy).
+    is0(redundant).
+
+    % Eliza is:
+    replace0([I|_], Input, _, Resp, R):-    
+	nth0(I, Input, Atom),
+	nth0(0, Resp, X),
+	X == flagIs,
+	elizaIs(Atom, R).
+
+    % spark Animal:
+	replace0([I|_], Input, _, Resp, R):-
+		nth0(I, Input, Atom),
+		nth0(0, Resp, X),
+		X == flagAnimal,
+		animalIs(Atom, R).
+
+
+    % Hechos unarios sobre animales
+        animalIs(X, R):- animal(X), R = [si, hay, X].
+        animalIs(X, R):- \+animal(X), R = [no, hay, X].
+        animal(gato).
+        animal(perro).
+        animal(pajaro).
     % generacion de la lista
     template([lista, de, animales], ListaResultado, []) :-
     findall(Animal, animal(Animal), ListaResultado).
 
-    % Hechos unarios sobre animales
-    animal(gato).
-    animal(perro).
-    animal(pajaro).
+   
 
     % Consulta directa
     template([lista, de, animales], ListaResultado, []).

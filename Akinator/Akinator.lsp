@@ -1,4 +1,6 @@
 
+personaje(cortana, creados, _, _, reach, atemporal, hostil, _).
+
 (defparameter *akinator-halo*
   '(
     ;; Categoría: Especie
