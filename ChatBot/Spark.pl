@@ -746,7 +746,7 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 		nth0(I, Input, Atom),
 		nth0(0, Resp, X),
 		X == flagFaccion,
-		faccionIsIs(Atom, R).
+		faccionIs(Atom, R).
 	% unsc
 	replace0([I|_], Input, _, Resp, R):-
 		nth0(I, Input, Atom),
