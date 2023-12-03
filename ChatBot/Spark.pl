@@ -1093,7 +1093,7 @@ Si no estas seguro de lo que estas haciendo escribe "indice de activacion" para 
 		nth0(I, Input, Atom),
 		nth0(0, Resp, X),
 		X == flagFaccion,
-		faccionIsIs(Atom, R).
+		faccionIs(Atom, R).
 	% unsc
 	replace0([I|_], Input, _, Resp, R):-
 		nth0(I, Input, Atom),
