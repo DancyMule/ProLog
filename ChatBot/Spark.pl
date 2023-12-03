@@ -1,5 +1,7 @@
 % Llamamiento inicial
-spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04, estare encantado de asistirte. Te recuerdo que todas las entradas deben ser en minusculas y con un "." al final'),
+spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04, estare encantado de asistirte con informacion a cerca del botulismo o del universo de Halo. Te recuerdo que todas las entradas deben ser en minusculas y con un "." al final.
+Si deseas colocar un nombre de personaje dividelo con "_" en vez de espacios.
+Puedes comenzar poniendo "indice de activacion" para ver que es lo que puedo hacer.'),
 	readln(Input),
 	spark(Input),!.
 
@@ -32,7 +34,7 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 
 
 	% saludos
-	template([hola, soy, s(_), '.'], ['Hola', 0, '¿',eres, un, perrito, de, la, c, '?'], [2]).
+	template([hola, soy, s(_), '.'], ['Hola', 0,eres, un, perrito, de, la, c, '?'], [2]).
 	template([hola, mi, nombre, es, s(_), '.'], ['Hola', 0, 'Como', estas, tu, '?'], [4]).
 	template([buendia, mi, nombre, es, s(_), '.'], ['buen dia', 'Como', estas, tu, 0, '?'], [4]).
 
@@ -42,6 +44,13 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 	template([tu, sabes, s(_)], [flagDo], [2]).
 	template([eres, s(_)], [flagIs], [1]).
 	
+	template([indice, de, activacion],['Puesde peguntarme sobre el botulismo; sus sintomas, causas, especialistas, tratamiento y medicamentos. 
+Tambien puedes preguntarme sobre Halo; especies, facciones, personajes, juegos y estado de los personajes.
+Tambien puedes hacer afirmaciones para comprobar informacion especifica como: 
+
+		"carreon es un especialista del botulismo.", o "josue es humano"'],[]).
+	
+
 	% TEMPLATES DE BOTULISMO
 	% Info del botulismo
 	template([botulismo],['El botulismo es una enfermedad rara pero grave causada por la toxina producida por la bacteria Clostridium botulinum. Esta bacteria es anaerobica, lo que significa que prospera en entornos con bajos niveles de oxigeno, como el interior de latas o envases sellados, suelos contaminados y heridas infectadas. La toxina que produce, llamada toxina botulinica, es una de las toxinas mas potentes conocidas por la humanidad.'],[]).
@@ -122,7 +131,13 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 	template([cuales, son, los, medicamentos], ListaResultado, []):-
 		findall(Medicamentos, medicamento_botulismo(Medicamentos), ListaResultado).
 	
+	template([cuales, son, los, medicamentos, del, botulismo], ListaResultado, []):-
+		findall(Medicamentos, medicamento_botulismo(Medicamentos), ListaResultado).
+	
 	template([dime, los, medicamentos], ListaResultado, []):-
+		findall(Medicamentos, medicamento_botulismo(Medicamentos), ListaResultado).
+	
+	template([dime, los, medicamentos, del, botulismo], ListaResultado, []):-
 		findall(Medicamentos, medicamento_botulismo(Medicamentos), ListaResultado).
 	
 	template([farmacos], ListaResultado, []):-
@@ -138,10 +153,19 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 	template([tratamiento], ListaResultado, []):-
 		findall(Tratameintos, tratamiento_botulismo(Tratameintos), ListaResultado).
 	
+	template([tratamiento, del, botulismo], ListaResultado, []):-
+		findall(Tratameintos, tratamiento_botulismo(Tratameintos), ListaResultado).
+	
 	template([dime, el, tratamiento], ListaResultado, []):-
 		findall(Tratameintos, tratamiento_botulismo(Tratameintos), ListaResultado).
 	
 	template([cual, es, el, tratamiento], ListaResultado, []):-
+		findall(Tratameintos, tratamiento_botulismo(Tratameintos), ListaResultado).
+	
+	template([dime, el, tratamiento, del, botulismo], ListaResultado, []):-
+		findall(Tratameintos, tratamiento_botulismo(Tratameintos), ListaResultado).
+	
+	template([cual, es, el, tratamiento, del, botulismo], ListaResultado, []):-
 		findall(Tratameintos, tratamiento_botulismo(Tratameintos), ListaResultado).
 	
 	template([como, se, trata, el, botulismo], ListaResultado, []):-
@@ -152,16 +176,18 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 
 	% templates comparativos del botulismo
 	template([s(_), es, un, sintoma], [flagSintoma], [0]).
+	template([s(_), es, un, sintoma, del, botulismo], [flagSintoma], [0]).
 	template([s(_), es, una, causa], [flagCausas], [0]).
+	template([s(_), es, una, causa, del, botulismo], [flagCausas], [0]).
 	template([s(_), es, un, especialista], [flagEspecialista], [0]).
+	template([s(_), es, un, especialista, del, botulismo], [flagEspecialista], [0]).
 	template([s(_), es, un, medicamento], [flagMedicamento], [0]).
+	template([s(_), es, un, medicamento, para, el, botulismo], [flagMedicamento], [0]).
 
 	% TEMPLATES DE HALO
-	% info halo
-	template([halo], ['"Halo" es una franquicia de ciencia ficción que abarca videojuegos, novelas, cómics y otros medios, creada por Bungie y desarrollada actualmente por 343 Industries. El nombre se refiere principalmente a los anillos gigantes conocidos como "Halo", construidos por una antigua y misteriosa raza alienígena conocida como los forerunners. Estos anillos tienen la capacidad de destruir toda forma de vida a nivel galáctico para prevenir la propagación de una amenaza particular.'], []).
-	template([que, es, halo], ['"Halo" es una franquicia de ciencia ficción que abarca videojuegos, novelas, cómics y otros medios, creada por Bungie y desarrollada actualmente por 343 Industries. El nombre se refiere principalmente a los anillos gigantes conocidos como "Halo", construidos por una antigua y misteriosa raza alienígena conocida como los forerunners. Estos anillos tienen la capacidad de destruir toda forma de vida a nivel galáctico para prevenir la propagación de una amenaza particular.'], []).
-	template([hablame, de, halo], ['"Halo" es una franquicia de ciencia ficción que abarca videojuegos, novelas, cómics y otros medios, creada por Bungie y desarrollada actualmente por 343 Industries. El nombre se refiere principalmente a los anillos gigantes conocidos como "Halo", construidos por una antigua y misteriosa raza alienígena conocida como los forerunners. Estos anillos tienen la capacidad de destruir toda forma de vida a nivel galáctico para prevenir la propagación de una amenaza particular.'], []).
 
+
+	%FALTAN LOS FINDAALL INDIVIDUALES DE ESPECIE, FACCION, ETC
 	% facciones halo
 	template([facciones], ListaResultado, []):-
 		findall(Facciones, faccion(Facciones), ListaResultado).
@@ -183,6 +209,104 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 
 	template([hay, facciones, en, halo, '?'], ListaResultado, []):-
 		findall(Facciones, faccion(Facciones), ListaResultado).
+
+		% unsc
+		template([unsc], ListaResultado, []):-
+			findall(UNSC, unsc(UNSC), ListaResultado).
+		
+		template([quien, es, unsc], ListaResultado, []):-
+			findall(UNSC, unsc(UNSC), ListaResultado).
+		
+		template([quien, es, de, la, unsc], ListaResultado, []):-
+			findall(UNSC, unsc(UNSC), ListaResultado).
+		
+		template([quienes, son, parte, de, la, unsc], ListaResultado, []):-
+			findall(UNSC, unsc(UNSC), ListaResultado).
+		
+		template([miembros, unsc], ListaResultado, []):-
+			findall(UNSC, unsc(UNSC), ListaResultado).
+		
+		template([miembros, de, la, unsc], ListaResultado, []):-
+			findall(UNSC, unsc(UNSC), ListaResultado).
+
+		% covenant
+		template([covenant], ListaResultado, []):-
+			findall(Covenant, covenant(Covenant), ListaResultado).
+		
+		template([quien, es, covenant], ListaResultado, []):-
+			findall(Covenant, covenant(Covenant), ListaResultado).
+		
+		template([quien, es, del, covenant], ListaResultado, []):-
+			findall(Covenant, covenant(Covenant), ListaResultado).
+		
+		template([quienes, son, parte, del, covenant], ListaResultado, []):-
+			findall(Covenant, covenant(Covenant), ListaResultado).
+		
+		template([miembros, covenant], ListaResultado, []):-
+			findall(Covenant, covenant(Covenant), ListaResultado).
+		
+		template([miembros, del, covenant], ListaResultado, []):-
+			findall(Covenant, covenant(Covenant), ListaResultado).
+		
+		% herejes
+		template([herejes], ListaResultado, []):-
+			findall(Herejes, hereje(Herejes), ListaResultado).
+		
+		template([hereje], ListaResultado, []):-
+			findall(Herejes, hereje(Herejes), ListaResultado).
+		
+		template([quienes, son, herejes], ListaResultado, []):-
+			findall(Herejes, hereje(Herejes), ListaResultado).
+		
+		template([quien, es, de, los , herejes], ListaResultado, []):-
+			findall(Herejes, hereje(Herejes), ListaResultado).
+		
+		template([quienes, son, parte, de, los, herejes], ListaResultado, []):-
+			findall(Herejes, hereje(Herejes), ListaResultado).
+		
+		template([miembros, herejes], ListaResultado, []):-
+			findall(Herejes, hereje(Herejes), ListaResultado).
+		
+		template([miembros, de, los, herejes], ListaResultado, []):-
+			findall(Herejes, hereje(Herejes), ListaResultado).
+		
+		% faccion forerunner
+		template([faccion, forerunner], ListaResultado, []):-
+			findall(ForerunnerFaccion, forerunnerFaccion(ForerunnerFaccion), ListaResultado).
+		
+		template([quien, es, faccion, forerunner], ListaResultado, []):-
+			findall(ForerunnerFaccion, forerunnerFaccion(ForerunnerFaccion), ListaResultado).
+		
+		template([quien, es, de, la, faccion, forerunner], ListaResultado, []):-
+			findall(ForerunnerFaccion, forerunnerFaccion(ForerunnerFaccion), ListaResultado).
+		
+		template([quienes, son, parte, de, la, faccion, forerunner], ListaResultado, []):-
+			findall(ForerunnerFaccion, forerunnerFaccion(ForerunnerFaccion), ListaResultado).
+		
+		template([miembros, faccion, forerunner], ListaResultado, []):-
+			findall(ForerunnerFaccion, forerunnerFaccion(ForerunnerFaccion), ListaResultado).
+		
+		template([miembros, de, la, faccion, forerunner], ListaResultado, []):-
+			findall(ForerunnerFaccion, forerunnerFaccion(ForerunnerFaccion), ListaResultado).
+
+		% faccion flood
+		template([faccion, flood], ListaResultado, []):-
+			findall(FloodFaccion, floodFaccion(FloodFaccion), ListaResultado).
+		
+		template([quien, es, faccion, flood], ListaResultado, []):-
+			findall(FloodFaccion, floodFaccion(FloodFaccion), ListaResultado).
+		
+		template([quien, es, de, la, faccion, flood], ListaResultado, []):-
+			findall(FloodFaccion, floodFaccion(FloodFaccion), ListaResultado).
+		
+		template([quienes, son, parte, de, la, faccion, flood], ListaResultado, []):-
+			findall(FloodFaccion, floodFaccion(FloodFaccion), ListaResultado).
+		
+		template([miembros, faccion, flood], ListaResultado, []):-
+			findall(FloodFaccion, floodFaccion(FloodFaccion), ListaResultado).
+		
+		template([miembros, de, la, faccion, flood], ListaResultado, []):-
+			findall(FloodFaccion, floodFaccion(FloodFaccion), ListaResultado).
 
 	% especies halo
 	template([especies], ListaResultado, []):-
@@ -206,6 +330,96 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 	template([hay, especies, en, halo], ListaResultado, []):-
 		findall(Especies, especie(Especies), ListaResultado).
 
+		% humanos
+		template([humano], ListaResultado, []):-
+			findall(Humano, humano(Humano), ListaResultado).
+		
+		template([humanos], ListaResultado, []):-
+			findall(Humano, humano(Humano), ListaResultado).
+		
+		template([quien, es, humano], ListaResultado, []):-
+			findall(Humano, humano(Humano), ListaResultado).
+
+		% creado
+		template([creado], ListaResultado, []):-
+			findall(Creado, creado(Creado), ListaResultado).
+		
+		template([creados], ListaResultado, []):-
+			findall(Creado, creado(Creado), ListaResultado).
+		
+		template([quien, es, creado], ListaResultado, []):-
+			findall(Creado, creado(Creado), ListaResultado).
+		
+		% sangheili
+		template([sangheili], ListaResultado, []):-
+			findall(Sangheili, sangheili(Sangheili), ListaResultado).
+		
+		template([sangheilis], ListaResultado, []):-
+			findall(Sangheili, sangheili(Sangheili), ListaResultado).
+		
+		template([quien, es, sangheili], ListaResultado, []):-
+			findall(Sangheili, sangheili(Sangheili), ListaResultado).
+		
+		% forerunner
+		template([forerunner], ListaResultado, []):-
+			findall(Forerunner, forerunner(Forerunner), ListaResultado).
+		
+		template([forerunners], ListaResultado, []):-
+			findall(Forerunner, forerunner(Forerunner), ListaResultado).
+		
+		template([quien, es, forerunner], ListaResultado, []):-
+			findall(Forerunner, forerunner(Forerunner), ListaResultado).
+		
+		% jiralhanae
+		template([jiralhanae], ListaResultado, []):-
+			findall(Jiralhanae, jiralhanae(Jiralhanae), ListaResultado).
+		
+		template([jiralhanaes], ListaResultado, []):-
+			findall(Jiralhanae, jiralhanae(Jiralhanae), ListaResultado).
+		
+		template([quien, es, jiralhanae], ListaResultado, []):-
+			findall(Jiralhanae, jiralhanae(Jiralhanae), ListaResultado).
+		
+		% Kig_yar
+		template([kig_yar], ListaResultado, []):-
+			findall(Kig_yar, kig_yar(Kig_yar), ListaResultado).
+		
+		template([kig_yars], ListaResultado, []):-
+			findall(Kig_yar, kig_yar(Kig_yar), ListaResultado).
+		
+		template([quien, es, kig_yar], ListaResultado, []):-
+			findall(Kig_yar, kig_yar(Kig_yar), ListaResultado).
+		
+		% Unggoy
+		template([unggoy], ListaResultado, []):-
+			findall(Unggoy, unggoy(Unggoy), ListaResultado).
+		
+		template([unggoys], ListaResultado, []):-
+			findall(Unggoy, unggoy(Unggoy), ListaResultado).
+		
+		template([quien, es, unggoy], ListaResultado, []):-
+			findall(Unggoy, unggoy(Unggoy), ListaResultado).
+		
+		% san_shyuum
+		template([san_shyuum], ListaResultado, []):-
+			findall(San_shyuum, san_shyuum(San_shyuum), ListaResultado).
+		
+		template([san_shyuums], ListaResultado, []):-
+			findall(San_shyuum, san_shyuum(San_shyuum), ListaResultado).
+		
+		template([quien, es, san_shyuum], ListaResultado, []):-
+			findall(San_shyuum, san_shyuum(San_shyuum), ListaResultado).
+		
+		% flood
+		template([flood], ListaResultado, []):-
+			findall(Flood, flood(Flood), ListaResultado).
+		
+		template([floods], ListaResultado, []):-
+			findall(Flood, flood(Flood), ListaResultado).
+		
+		template([quien, es, flood], ListaResultado, []):-
+			findall(Flood, flood(Flood), ListaResultado).
+
 	% estado de los personajes de halo
 	template([estados], ListaResultado, []):-
 		findall(Estados, estado(Estados), ListaResultado).
@@ -228,6 +442,63 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 	template([hay, estados, en, halo], ListaResultado, []):-
 		findall(Estados, estado(Estados), ListaResultado).
 
+		% activo
+		template([activo], ListaResultado, []):-
+			findall(Activo, activo(Activo), ListaResultado).
+		
+		template([activos], ListaResultado, []):-
+			findall(Activo, activo(Activo), ListaResultado).
+		
+		template([personajes, activos], ListaResultado, []):-
+			findall(Activo, activo(Activo), ListaResultado).
+		
+		template([quienes, estan, activos], ListaResultado, []):-
+			findall(Activo, activo(Activo), ListaResultado).
+		
+		template([vivo], ListaResultado, []):-
+			findall(Activo, activo(Activo), ListaResultado).
+		
+		template([vivos], ListaResultado, []):-
+			findall(Activo, activo(Activo), ListaResultado).
+
+		template([quienes, estan, vivos], ListaResultado, []):-
+			findall(Activo, activo(Activo), ListaResultado).
+
+		% muerto
+		template([inactivo], ListaResultado, []):-
+			findall(Muerto, muerto(Muerto), ListaResultado).
+		
+		template([inactivos], ListaResultado, []):-
+			findall(Muerto, muerto(Muerto), ListaResultado).
+		
+		template([personajes, inactivos], ListaResultado, []):-
+			findall(Muerto, muerto(Muerto), ListaResultado).
+		
+		template([quienes, estan, inactivos], ListaResultado, []):-
+			findall(Muerto, muerto(Muerto), ListaResultado).
+		
+		template([muerto], ListaResultado, []):-
+			findall(Muerto, muerto(Muerto), ListaResultado).
+		
+		template([muertos], ListaResultado, []):-
+			findall(Muerto, muerto(Muerto), ListaResultado).
+
+		template([quienes, estan, muertos], ListaResultado, []):-
+			findall(Muerto, muerto(Muerto), ListaResultado).
+		
+		% desaparecidos
+		template([desaparecido], ListaResultado, []):-
+			findall(Desaparecido, desaparecido(Desaparecido), ListaResultado).
+		
+		template([desaparecidos], ListaResultado, []):-
+			findall(Desaparecido, desaparecido(Desaparecido), ListaResultado).
+		
+		template([personajes, desaparecidos], ListaResultado, []):-
+			findall(Desaparecido, desaparecido(Desaparecido), ListaResultado).
+		
+		template([quienes, estan, desaparecidos], ListaResultado, []):-
+			findall(Desaparecido, desaparecido(Desaparecido), ListaResultado).
+
 	% juegos de halo
 	template([juegos], ListaResultado, []):-
 		findall(Juegos, juego(Juegos), ListaResultado).
@@ -249,7 +520,58 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 
 	template([hay, juegos, en, halo], ListaResultado, []):-
 		findall(Juegos, juego(Juegos), ListaResultado).
-	
+
+		% haloCE
+		template([halo, 1], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+		
+		template([halo, combat, evolved], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+		
+		template([halo, 1, personajes], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+		
+		template([halo, combat, evolved, personajes], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+		
+		template([personajes, de, halo, 1], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+		
+		template([personajes, de, halo, combat, evolved], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+		
+		template([quienes, aparecen, en, halo, 1], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+		
+		template([quienes, aparecen, en, halo, combat, evolved], ListaResultado, []):-
+			findall(Halo_combat_evolved, halo_combat_evolved(Halo_combat_evolved), ListaResultado).
+			
+		% halo 2
+		template([halo, 2], ListaResultado, []):-
+			findall(Halo_2, halo_2(Halo_2), ListaResultado).
+
+		template([halo, 2, personajes], ListaResultado, []):-
+			findall(Halo_2, halo_2(Halo_2), ListaResultado).
+		
+		template([personajes, de, halo, 2], ListaResultado, []):-
+			findall(Halo_2, halo_2(Halo_2), ListaResultado).
+
+		template([quienes, aparecen, en, halo, 2], ListaResultado, []):-
+			findall(Halo_2, halo_2(Halo_2), ListaResultado).
+		
+		% halo 3
+		template([halo, 3], ListaResultado, []):-
+			findall(Halo_3, halo_3(Halo_3), ListaResultado).
+
+		template([halo, 3, personajes], ListaResultado, []):-
+			findall(Halo_3, halo_3(Halo_3), ListaResultado).
+		
+		template([personajes, de, halo, 3], ListaResultado, []):-
+			findall(Halo_3, halo_3(Halo_3), ListaResultado).
+
+		template([quienes, aparecen, en, halo, 3], ListaResultado, []):-
+			findall(Halo_3, halo_3(Halo_3), ListaResultado).
+			
 	% personajes de halo
 	template([personajes], ListaResultado, []):-
 		findall(Personajes, personaje(Personajes), ListaResultado).
@@ -276,34 +598,59 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 	% faccion
 	template([s(_), es, una, faccion], [flagFaccion], [0]).
 	template([s(_), es, de, la, unsc], [flagUNSC], [0]).
+	template([s(_), es, unsc], [flagUNSC], [0]).
 	template([s(_), es, del, covenant], [flagCovenant], [0]).
+	template([s(_), es, covenant], [flagCovenant], [0]).
 	template([s(_), es, un, hereje], [flagHereje], [0]).
+	template([s(_), es, hereje], [flagHereje], [0]).
 	template([s(_), es, un, forerunner, faccion], [flagforerunnerFaccion], [0]).
+	template([s(_), es, forerunner, faccion], [flagforerunnerFaccion], [0]).
 	template([s(_), es, un, flood, faccion], [flagfloodFaccion], [0]).	
+	template([s(_), es, flood, faccion], [flagfloodFaccion], [0]).	
 	% especie
 	template([s(_), es, una, especie], [flagEspecie], [0]).
 	template([s(_), es, un, humano], [flagHumano], [0]).
+	template([s(_), es, humano], [flagHumano], [0]).
 	template([s(_), es, un, creado], [flagCreado], [0]).
+	template([s(_), es, creado], [flagCreado], [0]).
 	template([s(_), es, un, sangheili], [flagSangheili], [0]).
+	template([s(_), es, sangheili], [flagSangheili], [0]).
 	template([s(_), es, un, forerunner], [flagforerunner], [0]).
+	template([s(_), es, forerunner], [flagforerunner], [0]).
 	template([s(_), es, un, jiralhanae], [flagJiralhanae], [0]).
+	template([s(_), es, jiralhanae], [flagJiralhanae], [0]).
 	template([s(_), es, un, kig_yar], [flagKig_yar], [0]).
+	template([s(_), es, kig_yar], [flagKig_yar], [0]).
 	template([s(_), es, un, unggoy], [flagUnggoy], [0]).
+	template([s(_), es, unggoy], [flagUnggoy], [0]).
 	template([s(_), es, un, san_shyuum], [flagSan_shyuum], [0]).
+	template([s(_), es, san_shyuum], [flagSan_shyuum], [0]).
 	template([s(_), es, un, flood], [flagFlood], [0]).
+	template([s(_), es, flood], [flagFlood], [0]).
 	% estado
 	template([s(_), esta, activo], [flagActivo], [0]).
+	template([s(_), esta, vivo], [flagActivo], [0]).
 	template([s(_), esta, muerto], [flagMuerto], [0]).
+	template([s(_), esta, inactivo], [flagMuerto], [0]).
 	template([s(_), esta, desaparecido], [flagDesaparecido], [0]).
 	% juegos
 	template([s(_), es, un, juego], [flagJuego], [0]).
 	template([s(_), esta, en, halo_combat_evolved], [flagHaloCE], [0]).
+	template([s(_), aparece, en, halo_combat_evolved], [flagHaloCE], [0]).
 	template([s(_), esta, en, halo_2], [flagHalo2], [0]).
+	template([s(_), aparece, en, halo_2], [flagHalo2], [0]).
 	template([s(_), esta, en, halo_3], [flagHalo3], [0]).
+	template([s(_), aparece, en, halo_3], [flagHalo3], [0]).
 	% personajes
 	template([s(_), es, un, personaje], [flagPersonaje], [0]).
+	% info halo
+	template([halo], ['"Halo" es una franquicia de ciencia ficción que abarca videojuegos, novelas, cómics y otros medios, creada por Bungie y desarrollada actualmente por 343 Industries. El nombre se refiere principalmente a los anillos gigantes conocidos como "Halo", construidos por una antigua y misteriosa raza alienígena conocida como los forerunners. Estos anillos tienen la capacidad de destruir toda forma de vida a nivel galáctico para prevenir la propagación de una amenaza particular.'], []).
+	template([que, es, halo], ['"Halo" es una franquicia de ciencia ficción que abarca videojuegos, novelas, cómics y otros medios, creada por Bungie y desarrollada actualmente por 343 Industries. El nombre se refiere principalmente a los anillos gigantes conocidos como "Halo", construidos por una antigua y misteriosa raza alienígena conocida como los forerunners. Estos anillos tienen la capacidad de destruir toda forma de vida a nivel galáctico para prevenir la propagación de una amenaza particular.'], []).
+	template([hablame, de, halo], ['"Halo" es una franquicia de ciencia ficción que abarca videojuegos, novelas, cómics y otros medios, creada por Bungie y desarrollada actualmente por 343 Industries. El nombre se refiere principalmente a los anillos gigantes conocidos como "Halo", construidos por una antigua y misteriosa raza alienígena conocida como los forerunners. Estos anillos tienen la capacidad de destruir toda forma de vida a nivel galáctico para prevenir la propagación de una amenaza particular.'], []).
+
 	% templates default
-	template(_, ['No te he comprendido, dime algo que que sirva'], []). 
+	template(_, ['No te he comprendido, asegurate de escribir correctamente las palabras.
+Si no estas seguro de lo que estas haciendo escribe "indice de activacion" para obtener un glosario reducido.'], []). 
 
 	% HECHOS SOBRE MI ENFERMEDAD "BOTULISMO"
 	% Hechos y flag de causas del botulismo
@@ -825,4 +1172,3 @@ spark:-	writeln('Hola, mi nombre es 343 Gulty Spark monitor de la instalacion 04
 		nth0(0, Resp, X),
 		X == flagPersonaje,
 		personajeIs(Atom, R).
-
