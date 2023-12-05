@@ -1,3 +1,7 @@
+# Descripción:
+## La función "vocalSemi" solicita al usuario ingresar una letra y determina si la letra es una vocal, una semivocal o una consonante. La función utiliza la función 'case' para realizar esta evaluación y luego imprime el resultado.
+
+~~~
 (defun vocalSemi (letra)
     (format t "Ingresa una letra: ")
     (setq letra (read))
@@ -8,3 +12,4 @@
         (t (format t "La letra ~c es una consonante.~%"))
     )
 )
+~~~

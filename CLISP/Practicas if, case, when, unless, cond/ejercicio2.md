@@ -1,4 +1,6 @@
-
+# Descripción:
+## La función "prestamo" solicita información al usuario, incluyendo el nombre, historial crediticio, monto solicitado, salario anual y el valor de las propiedades. Luego, evalúa si el solicitante es candidato para un préstamo, basándose en su historial crediticio y otros criterios. Si el historial es bueno, se calculan puntos según ciertos criterios, y se imprime la cantidad de puntos obtenidos.
+~~~
    (defun prestamo() 
     (print "¿Cuál es tu nombre?")
     (setq nombreSolicitante (read))
@@ -35,7 +37,5 @@
         )
         (t (print "Uy"))
     )
-
-
-
    )
+   ~~~
