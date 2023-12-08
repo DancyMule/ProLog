@@ -176,6 +176,10 @@ Tambien puedes hacer afirmaciones para comprobar informacion especifica como:
 
 	% templates comparativos del botulismo
 	template([s(_), es, un, sintoma], [flagSintoma], [0]).
+	template([tengo, s(_),'.'], [flagSintoma], [1]).
+	template([tengo, s(_), y, s(_)], [flagSintomas2], [1, 3]).
+	template([tengo, s(_),',',s(_), y, s(_)], [flagSintomas3], [1, 3, 5]).
+	template([tengo, s(_),',',s(_),',',s(_), y, s(_)], [flagSintomas4], [1, 3, 5, 7]).
 	template([s(_), es, un, sintoma, del, botulismo], [flagSintoma], [0]).
 	template([s(_), es, una, causa], [flagCausas], [0]).
 	template([s(_), es, una, causa, del, botulismo], [flagCausas], [0]).
@@ -662,12 +666,43 @@ Si no estas seguro de lo que estas haciendo escribe "indice de activacion" para 
 	causa_botulismo('ingesta_de_esporas').
 
 	% Hechos y flag de sintomas del botulismo
-	sintomaIs(X, R):- sintoma_botulismo(X), R = [si, X, es, un, sintoma, del, botulismo].
-    sintomaIs(X, R):- \+sintoma_botulismo(X), R = [X, no, es, un, sintoma, del, botulismo].
-	sintoma_botulismo('vision borrosa').
+	sintomaIs(X, R):- sintoma_botulismo(X), R = [si, X, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas].
+    sintomaIs(X, R):- \+sintoma_botulismo(X), R = [X, no, es, un, sintoma, del, botulismo, estas, enfermo, de, otra, cosa].
+	%2 sintomas
+	multaSintoma2Is(X, Y, R):- sintoma_botulismo(X), sintoma_botulismo(Y), R = [si, X, y, Y, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas].
+	multaSintoma2Is(X, Y, R):- \+sintoma_botulismo(X), \+sintoma_botulismo(Y), R = [X, y, Y, no, son, sintomas, del, botulismo, estas, enfermo, de, otra, cosa].
+	multaSintoma2Is(X, Y, R):- \+sintoma_botulismo(X), sintoma_botulismo(Y), R = [Y, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, X, no, es, un, sintoma, del, botulismo].
+	multaSintoma2Is(X, Y, R):- sintoma_botulismo(X), \+sintoma_botulismo(Y), R = [X, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, Y, no, es, un, sintoma, del, botulismo].
+	%3 sintomas
+	multaSintoma3Is(X, Y, Z, R):- sintoma_botulismo(X), sintoma_botulismo(Y), sintoma_botulismo(Z), R = [si, X, Y, y, Z, son, sintomas, del, botulismo, hay, un ,'27%', de, probabilidad, de, que, lo, padezcas].
+	multaSintoma3Is(X, Y, Z, R):- \+sintoma_botulismo(X), sintoma_botulismo(Y), sintoma_botulismo(Z), R = [Z, y, Y, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, X, no, es, sintoma, del, botulismo].
+	multaSintoma3Is(X, Y, Z, R):- \+sintoma_botulismo(X), \+sintoma_botulismo(Y), sintoma_botulismo(Z), R = [Z, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, X, y, Y, no, son, sintomas, del, botulismo].
+	multaSintoma3Is(X, Y, Z, R):- sintoma_botulismo(X), \+sintoma_botulismo(Y), sintoma_botulismo(Z), R = [X, y, Z, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, Y, no, es, sintoma, del, botulismo].
+	multaSintoma3Is(X, Y, Z, R):- sintoma_botulismo(X), \+sintoma_botulismo(Y), \+sintoma_botulismo(Z), R = [X, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, Y, y, Z, no, son, sintomas, del, botulismo].
+	multaSintoma3Is(X, Y, Z, R):- sintoma_botulismo(X), sintoma_botulismo(Y), \+sintoma_botulismo(Z),R = [X, y, Y, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, Z, no, es, sintoma, del, botulismo].
+	multaSintoma3Is(X, Y, Z, R):- \+sintoma_botulismo(X), \+sintoma_botulismo(Y), \+sintoma_botulismo(Z),R = [X, Y, y, Z, no, son, sintomas, del, botulismo, estas, enfermo, de, otra, cosa].
+	%4 sintomas
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), sintoma_botulismo(Y), sintoma_botulismo(Z), sintoma_botulismo(AA), R = [si, X, Y, Z, y, AA, son, sintomas, del, botulismo, hay, un ,'36%', de, probabilidad, de, que, lo, padezcas].
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), sintoma_botulismo(Y), sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [X, Y, y, Z, son, sintomas, del, botulismo, hay, un ,'27%', de, probabilidad, de, que, lo, padezcas, AA, no, es, un, sintoma, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), sintoma_botulismo(Y), \+sintoma_botulismo(Z), sintoma_botulismo(AA), R = [X, Y, y, AA, son, sintomas, del, botulismo, hay, un ,'27%', de, probabilidad, de, que, lo, padezcas, Z, no, es, un, sintoma, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), sintoma_botulismo(Y), \+sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [X, y, Y, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, Z, y, AA, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), \+sintoma_botulismo(Y), sintoma_botulismo(Z), sintoma_botulismo(AA), R = [X, Z, y, AA, son, sintomas, del, botulismo, hay, un ,'27%', de, probabilidad, de, que, lo, padezcas, Y, no, es, un, sintoma, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), \+sintoma_botulismo(Y), sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [X, y, Z, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, Y, y, AA, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), \+sintoma_botulismo(Y), \+sintoma_botulismo(Z), sintoma_botulismo(AA), R = [X, y, AA, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, Y, y, Z, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- sintoma_botulismo(X), \+sintoma_botulismo(Y), \+sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [X, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, Y, Z, y, AA, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), sintoma_botulismo(Y), sintoma_botulismo(Z), sintoma_botulismo(AA), R = [AA, Y, y, Z, son, sintomas, del, botulismo, hay, un ,'27%', de, probabilidad, de, que, lo, padezcas, X, no, es, un, sintoma, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), sintoma_botulismo(Y), sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [Z, y, Y, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, X, y, AA, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), sintoma_botulismo(Y), \+sintoma_botulismo(Z), sintoma_botulismo(AA), R = [AA, y, Y, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, X, y, Z, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), sintoma_botulismo(Y), \+sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [Y, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, X, Z, y, AA, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), \+sintoma_botulismo(Y), sintoma_botulismo(Z), sintoma_botulismo(AA), R = [Z, y, AA, son, sintomas, del, botulismo, hay, un ,'18%', de, probabilidad, de, que, lo, padezcas, X, y, Y, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), \+sintoma_botulismo(Y), sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [Z, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, X, Y, y, AA, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), \+sintoma_botulismo(Y), \+sintoma_botulismo(Z), sintoma_botulismo(AA), R = [AA, es, un, sintoma, del, botulismo, hay, un ,'9%', de, probabilidad, de, que, lo, padezcas, X, Y, y, Z, no, son, sintomas, del, botulismo].
+	multaSintoma4Is(X, Y, Z, AA, R):- \+sintoma_botulismo(X), \+sintoma_botulismo(Y), \+sintoma_botulismo(Z), \+sintoma_botulismo(AA), R = [X, Y, Z, y, AA, no, son, sintomas, del, botulismo, estas, enfermo, de, otra, cosa].
+	%Hechos
+	sintoma_botulismo('vision_borrosa').
 	sintoma_botulismo('debilidad').
-	sintoma_botulismo('dificultad del habla').
-	sintoma_botulismo('dificultad para tragar').
+	sintoma_botulismo('dificultad_del_habla').
+	sintoma_botulismo('dificultad_para_tragar').
 	sintoma_botulismo('resequedad').
 	sintoma_botulismo('fatiga').
 	sintoma_botulismo('paralisis').
@@ -1005,6 +1040,45 @@ Si no estas seguro de lo que estas haciendo escribe "indice de activacion" para 
 		nth0(0, Resp, X),
 		X == flagSintoma,
 		sintomaIs(Atom, R).
+	
+	% botulismo MultiSintomas2:
+	replace0([I,J|_], Input, _, Resp, R):-
+		nth0(I, Input, Atom),
+		nth0(0, Resp, X),
+		X == flagSintomas2,
+		nth0(J, Input, Atom2),
+		nth0(0, Resp, Y),
+		Y == flagSintomas2,
+		multaSintoma2Is(Atom, Atom2, R).
+
+	% botulismo MultiSintomas3:
+	replace0([I,J,K|_], Input, _, Resp, R):-
+		nth0(I, Input, Atom),
+		nth0(0, Resp, X),
+		X == flagSintomas3,
+		nth0(J, Input, Atom2),
+		nth0(0, Resp, Y),
+		Y == flagSintomas3,
+		nth0(K, Input, Atom3),
+		nth0(0, Resp, Z),
+		Z == flagSintomas3,
+		multaSintoma3Is(Atom, Atom2, Atom3, R).
+
+	% botulismo MultiSintomas4:
+	replace0([I,J,K,L|_], Input, _, Resp, R):-
+		nth0(I, Input, Atom),
+		nth0(0, Resp, X),
+		X == flagSintomas4,
+		nth0(J, Input, Atom2),
+		nth0(0, Resp, Y),
+		Y == flagSintomas4,
+		nth0(K, Input, Atom3),
+		nth0(0, Resp, Z),
+		Z == flagSintomas4,
+		nth0(L, Input, Atom4),
+		nth0(0, Resp, AA),
+		AA == flagSintomas4,
+		multaSintoma4Is(Atom, Atom2, Atom3, Atom4, R).
 
 	% botulismo Causas:
 	replace0([I|_], Input, _, Resp, R):-
